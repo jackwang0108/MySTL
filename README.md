@@ -1,2 +1,3 @@
-# my-stl
-A tiny stl implemented by Jack Wang, for getting advanced in C++.
+# MySTL
+
+A simple STL implemented by Jack Wang, for dive deeper into C++ Standard Template Library.
