@@ -25,13 +25,13 @@
  */
 
 #ifndef __SGI_STL_MAP
-#define __SGI_STL_MAP
+#	define __SGI_STL_MAP
 
-#ifndef __SGI_STL_INTERNAL_TREE_H
-#include <stl_tree.h>
-#endif
-#include <stl_map.h>
-#include <stl_multimap.h>
+#	ifndef __SGI_STL_INTERNAL_TREE_H
+#		include <stl_tree.h>
+#	endif
+#	include <stl_map.h>
+#	include <stl_multimap.h>
 
 #endif /* __SGI_STL_MAP */
 

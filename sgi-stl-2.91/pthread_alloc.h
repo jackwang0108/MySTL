@@ -12,16 +12,16 @@
  */
 
 #ifndef __SGI_STL_PTHREAD_ALLOC_H
-#define __SGI_STL_PTHREAD_ALLOC_H
+#	define __SGI_STL_PTHREAD_ALLOC_H
 
-#include <pthread_alloc>
+#	include <pthread_alloc>
 
-#ifdef __STL_USE_NAMESPACES
+#	ifdef __STL_USE_NAMESPACES
 
 using __STD::__pthread_alloc_template;
 using __STL::pthread_alloc;
 
-#endif /* __STL_USE_NAMESPACES */
+#	endif /* __STL_USE_NAMESPACES */
 
 
 #endif /* __SGI_STL_PTHREAD_ALLOC_H */

@@ -28,7 +28,7 @@ Written by Per Bothner (bothner@cygnus.com). */
 #define _INDSTREAM_H
 
 #ifdef __GNUG__
-#pragma interface
+#	pragma interface
 #endif
 
 #include <iostream.h>
@@ -50,28 +50,27 @@ extern "C++" {
 // };
 
 class indirectbuf : public streambuf {
-  protected:
-    streambuf *_get_stream;  // Optional cache for get_stream().
-    streambuf *_put_stream;  // Optional cache for put_stream().
-    int _delete_flags;
-  public:
-    streambuf *get_stream()
-	{ return _get_stream ? _get_stream : lookup_stream(ios::in); }
-    streambuf *put_stream()
-	{ return _put_stream ? _put_stream : lookup_stream(ios::out); }
-    virtual streambuf *lookup_stream(int/*mode*/) { return NULL; } // ERROR!
-    indirectbuf(streambuf *get=NULL, streambuf *put=NULL, int delete_mode=0);
-    virtual ~indirectbuf();
-    virtual streamsize xsputn(const char* s, streamsize n);
-    virtual streamsize xsgetn(char* s, streamsize n);
-    virtual int underflow();
-    virtual int uflow();
-    virtual int overflow(int c = EOF);
-    virtual streampos seekoff(streamoff, _seek_dir, int mode=ios::in|ios::out);
-    virtual streampos seekpos(streampos pos, int mode = ios::in|ios::out);
-    virtual int sync();
-    virtual int pbackfail(int c);
+protected:
+	streambuf *_get_stream;// Optional cache for get_stream().
+	streambuf *_put_stream;// Optional cache for put_stream().
+	int _delete_flags;
+
+public:
+	streambuf *get_stream() { return _get_stream ? _get_stream : lookup_stream(ios::in); }
+	streambuf *put_stream() { return _put_stream ? _put_stream : lookup_stream(ios::out); }
+	virtual streambuf *lookup_stream(int /*mode*/) { return NULL; }// ERROR!
+	indirectbuf(streambuf *get = NULL, streambuf *put = NULL, int delete_mode = 0);
+	virtual ~indirectbuf();
+	virtual streamsize xsputn(const char *s, streamsize n);
+	virtual streamsize xsgetn(char *s, streamsize n);
+	virtual int underflow();
+	virtual int uflow();
+	virtual int overflow(int c = EOF);
+	virtual streampos seekoff(streamoff, _seek_dir, int mode = ios::in | ios::out);
+	virtual streampos seekpos(streampos pos, int mode = ios::in | ios::out);
+	virtual int sync();
+	virtual int pbackfail(int c);
 };
-} // extern "C++"
+}// extern "C++"
 
 #endif /* !_INDSTREAM_H */

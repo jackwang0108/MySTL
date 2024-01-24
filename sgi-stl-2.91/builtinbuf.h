@@ -26,7 +26,7 @@ the executable file might be covered by the GNU General Public License. */
 #define _BUILTINBUF_H
 
 #ifdef __GNUC__
-#pragma interface
+#	pragma interface
 #endif
 
 #include <streambuf.h>
@@ -37,32 +37,32 @@ the executable file might be covered by the GNU General Public License. */
 
 extern "C++" {
 class builtinbuf : public streambuf {
-  friend ios;
-  virtual int overflow(int);
-  virtual int underflow();
-  virtual streamsize xsgetn(char *, streamsize);
-  virtual streamsize xsputn(const char *, streamsize);
-  virtual streambuf* setbuf(char*, int);
-  virtual int doallocate();
-  virtual ~builtinbuf();
-  virtual int sync();
+	friend ios;
+	virtual int overflow(int);
+	virtual int underflow();
+	virtual streamsize xsgetn(char *, streamsize);
+	virtual streamsize xsputn(const char *, streamsize);
+	virtual streambuf *setbuf(char *, int);
+	virtual int doallocate();
+	virtual ~builtinbuf();
+	virtual int sync();
 
-  virtual streampos seekoff(streamoff, _seek_dir, int mode=ios::in|ios::out);
-  virtual streampos seekpos(streampos pos, int mode = ios::in|ios::out);
-  virtual int pbackfail(int c);
-  virtual streamsize sys_read(char* buf, streamsize size);
-  virtual streampos sys_seek(streamoff, _seek_dir);
-  virtual streamsize sys_write(const char*, streamsize);
-  virtual int sys_stat(void*); // Actually, a (struct stat*)
-  virtual int sys_close();
-#if 0
+	virtual streampos seekoff(streamoff, _seek_dir, int mode = ios::in | ios::out);
+	virtual streampos seekpos(streampos pos, int mode = ios::in | ios::out);
+	virtual int pbackfail(int c);
+	virtual streamsize sys_read(char *buf, streamsize size);
+	virtual streampos sys_seek(streamoff, _seek_dir);
+	virtual streamsize sys_write(const char *, streamsize);
+	virtual int sys_stat(void *);// Actually, a (struct stat*)
+	virtual int sys_close();
+#	if 0
   virtual int get_column();
   virtual int set_column(int);
-#endif
- private:
-  builtinbuf() { }
+#	endif
+private:
+	builtinbuf() {}
 };
-} // extern "C++"
+}// extern "C++"
 #endif
 
 #endif /* _BUILTINBUF_H */

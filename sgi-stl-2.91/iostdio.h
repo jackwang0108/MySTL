@@ -36,10 +36,10 @@ the executable file might be covered by the GNU General Public License. */
 
 typedef _IO_FILE FILE;
 #ifndef EOF
-#define EOF (-1)
+#	define EOF (-1)
 #endif
 #ifndef BUFSIZ
-#define BUFSIZ 1024
+#	define BUFSIZ 1024
 #endif
 
 /* #define size_t, fpos_t L_tmpname TMP_MAX */
@@ -96,19 +96,19 @@ typedef _IO_FILE FILE;
 
 #if 0
 /* We can use the libc versions of these, since they don't pass FILE*s. */
-#define remove ??? __P((const char*))
-#define rename ??? __P((const char* _old, const char* _new))
-#define tmpfile ??? __P((void))
-#define tmpnam ??? __P((char*))
+#	define remove ? ? ? __P((const char *) )
+#	define rename ? ? ? __P((const char *_old, const char *_new))
+#	define tmpfile ? ? ? __P((void) )
+#	define tmpnam ? ? ? __P((char *) )
 #endif
 
 #if !defined(__STRICT_ANSI__) || defined(_POSIX_SOURCE)
-#define fdopen _IO_fdopen
-#define fileno _IO_fileno
-#define popen _IO_popen
-#define pclose _IO_pclose
-#define setbuf _IO_setbuf
-#define setlinebuf _IO_setlinebuf
+#	define fdopen _IO_fdopen
+#	define fileno _IO_fileno
+#	define popen _IO_popen
+#	define pclose _IO_pclose
+#	define setbuf _IO_setbuf
+#	define setlinebuf _IO_setlinebuf
 #endif
 
 #endif /* _IOSTDIO_H */

@@ -33,27 +33,27 @@ the executable file might be covered by the GNU General Public License. */
 #include <iostream.h>
 
 extern "C++" {
-extern char* form(const char*, ...);
+extern char *form(const char *, ...);
 
-extern char* dec(long, int=0);
-extern char* dec(int, int=0);
-extern char* dec(unsigned long, int=0);
-extern char* dec(unsigned int, int=0);
+extern char *dec(long, int = 0);
+extern char *dec(int, int = 0);
+extern char *dec(unsigned long, int = 0);
+extern char *dec(unsigned int, int = 0);
 
-extern char* hex(long, int=0);
-extern char* hex(int, int=0);
-extern char* hex(unsigned long, int=0);
-extern char* hex(unsigned int, int=0);
+extern char *hex(long, int = 0);
+extern char *hex(int, int = 0);
+extern char *hex(unsigned long, int = 0);
+extern char *hex(unsigned int, int = 0);
 
-extern char* oct(long, int=0);
-extern char* oct(int, int=0);
-extern char* oct(unsigned long, int=0);
-extern char* oct(unsigned int, int=0);
+extern char *oct(long, int = 0);
+extern char *oct(int, int = 0);
+extern char *oct(unsigned long, int = 0);
+extern char *oct(unsigned int, int = 0);
 
-char*        chr(char ch, int width = 0);
-char*        str(const char* s, int width = 0);
+char *chr(char ch, int width = 0);
+char *str(const char *s, int width = 0);
 
-inline istream& WS(istream& str) { return ws(str); }
-} // extern "C++"
+inline istream &WS(istream &str) { return ws(str); }
+}// extern "C++"
 
 #endif /* !_COMPAT_STREAM_H */

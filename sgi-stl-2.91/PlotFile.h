@@ -33,7 +33,7 @@ the executable file might be covered by the GNU General Public License. */
 
 #ifndef _PlotFile_h
 #ifdef __GNUG__
-#pragma interface
+#	pragma interface
 #endif
 #define _PlotFile_h
 
@@ -45,45 +45,43 @@ the executable file might be covered by the GNU General Public License. */
 */
 
 extern "C++" {
-class PlotFile : public ofstream
-{
+class PlotFile : public ofstream {
 protected:
-  PlotFile& cmd(char c);
-  PlotFile& operator << (const int x);
-  PlotFile& operator << (const char *s);
-  
+	PlotFile &cmd(char c);
+	PlotFile &operator<<(const int x);
+	PlotFile &operator<<(const char *s);
+
 public:
-  
-  PlotFile() : ofstream() { }
-  PlotFile(int fd) : ofstream(fd) { }
-  PlotFile(const char *name, int mode=ios::out, int prot=0664)
-      : ofstream(name, mode, prot) { }
-  
-//  PlotFile& remove() { ofstream::remove(); return *this; }
-  
-//  int           filedesc() { return ofstream::filedesc(); }
-//  const char*   name() { return File::name(); }
-//  void          setname(const char* newname) { File::setname(newname); }
-//  int           iocount() { return File::iocount(); }
-  
-  PlotFile& arc(const int xi, const int yi,
-                const int x0, const int y0,
-                const int x1, const int y1);
-  PlotFile& box(const int x0, const int y0,
-                const int x1, const int y1);
-  PlotFile& circle(const int x, const int y, const int r);
-  PlotFile& cont(const int xi, const int yi);
-  PlotFile& dot(const int xi, const int yi, const int dx,
-                int n, const int* pat);
-  PlotFile& erase(); 
-  PlotFile& label(const char* s);
-  PlotFile& line(const int x0, const int y0,
-                 const int x1, const int y1);
-  PlotFile& linemod(const char* s);
-  PlotFile& move(const int xi, const int yi);
-  PlotFile& point(const int xi, const int yi);
-  PlotFile& space(const int x0, const int y0,
-                  const int x1, const int y1);
+	PlotFile() : ofstream() {}
+	PlotFile(int fd) : ofstream(fd) {}
+	PlotFile(const char *name, int mode = ios::out, int prot = 0664)
+	    : ofstream(name, mode, prot) {}
+
+	//  PlotFile& remove() { ofstream::remove(); return *this; }
+
+	//  int           filedesc() { return ofstream::filedesc(); }
+	//  const char*   name() { return File::name(); }
+	//  void          setname(const char* newname) { File::setname(newname); }
+	//  int           iocount() { return File::iocount(); }
+
+	PlotFile &arc(const int xi, const int yi,
+	              const int x0, const int y0,
+	              const int x1, const int y1);
+	PlotFile &box(const int x0, const int y0,
+	              const int x1, const int y1);
+	PlotFile &circle(const int x, const int y, const int r);
+	PlotFile &cont(const int xi, const int yi);
+	PlotFile &dot(const int xi, const int yi, const int dx,
+	              int n, const int *pat);
+	PlotFile &erase();
+	PlotFile &label(const char *s);
+	PlotFile &line(const int x0, const int y0,
+	               const int x1, const int y1);
+	PlotFile &linemod(const char *s);
+	PlotFile &move(const int xi, const int yi);
+	PlotFile &point(const int xi, const int yi);
+	PlotFile &space(const int x0, const int y0,
+	                const int x1, const int y1);
 };
-} // extern "C++"
+}// extern "C++"
 #endif

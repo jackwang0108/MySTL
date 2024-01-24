@@ -25,31 +25,34 @@ the executable file might be covered by the GNU General Public License. */
 
 #ifndef _SFile_h
 #ifdef __GNUG__
-#pragma interface
+#	pragma interface
 #endif
 #define _SFile_h 1
 
 #include <fstream.h>
 
 extern "C++" {
-class SFile: public fstream
-{
-  protected:
-    int       sz;                   // unit size for structured binary IO
+class SFile : public fstream {
+protected:
+	int sz;// unit size for structured binary IO
 
 public:
-    SFile() : fstream() { }
-    SFile(int fd, int size);
-    SFile(const char *name, int size, int mode, int prot=0664);
-    void open(const char *name, int size, int mode, int prot=0664);
-    
-    int       size() { return sz; }
-    int       setsize(int s) { int old = sz; sz = s; return old; }
-    
-    SFile&    get(void* x);
-    SFile&    put(void* x);
-    SFile&    operator[](long i);
+	SFile() : fstream() {}
+	SFile(int fd, int size);
+	SFile(const char *name, int size, int mode, int prot = 0664);
+	void open(const char *name, int size, int mode, int prot = 0664);
+
+	int size() { return sz; }
+	int setsize(int s) {
+		int old = sz;
+		sz = s;
+		return old;
+	}
+
+	SFile &get(void *x);
+	SFile &put(void *x);
+	SFile &operator[](long i);
 };
-} // extern "C++"
+}// extern "C++"
 
 #endif

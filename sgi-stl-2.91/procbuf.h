@@ -27,24 +27,25 @@ the executable file might be covered by the GNU General Public License. */
 #ifndef _PROCBUF_H
 #define _PROCBUF_H
 #ifdef __GNUG__
-#pragma interface
+#	pragma interface
 #endif
 
 #include <streambuf.h>
 
 extern "C++" {
 class procbuf : public filebuf {
-    /* Following fields must match those in struct _IO_proc_file */
-    _IO_pid_t _pid;
-    procbuf *_next;
-  public:
-    procbuf() : filebuf() { }
-    procbuf(const char *command, int mode);
-    procbuf* open(const char *command, int mode);
-    procbuf *close() { return (procbuf*)filebuf::close(); }
-    virtual int sys_close();
-    ~procbuf();
+	/* Following fields must match those in struct _IO_proc_file */
+	_IO_pid_t _pid;
+	procbuf *_next;
+
+public:
+	procbuf() : filebuf() {}
+	procbuf(const char *command, int mode);
+	procbuf *open(const char *command, int mode);
+	procbuf *close() { return (procbuf *) filebuf::close(); }
+	virtual int sys_close();
+	~procbuf();
 };
-} // extern "C++"
+}// extern "C++"
 
 #endif /* !_PROCBUF_H */

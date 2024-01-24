@@ -12,20 +12,20 @@
  */
 
 #ifndef __SGI_STL_ROPE_H
-#define __SGI_STL_ROPE_H
+#	define __SGI_STL_ROPE_H
 
-#include <hashtable.h>
-#include <stl_rope.h>
+#	include <hashtable.h>
+#	include <stl_rope.h>
 
-#ifdef __STL_USE_NAMESPACES
+#	ifdef __STL_USE_NAMESPACES
 
-using __STD::char_producer; 
-using __STD::sequence_buffer; 
-using __STD::rope; 
-using __STD::crope; 
-using __STD::wrope; 
+using __STD::char_producer;
+using __STD::crope;
+using __STD::rope;
+using __STD::sequence_buffer;
+using __STD::wrope;
 
-#endif /* __STL_USE_NAMESPACES */
+#	endif /* __STL_USE_NAMESPACES */
 
 #endif /* __SGI_STL_ROPE_H */
 

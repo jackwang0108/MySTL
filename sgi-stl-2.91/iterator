@@ -25,13 +25,13 @@
  */
 
 #ifndef __SGI_STL_ITERATOR
-#define __SGI_STL_ITERATOR
+#	define __SGI_STL_ITERATOR
 
-#include <stl_config.h>
-#include <stl_relops.h>
-#include <stddef.h>
-#include <iostream.h>
-#include <stl_iterator.h>
+#	include <iostream.h>
+#	include <stddef.h>
+#	include <stl_config.h>
+#	include <stl_iterator.h>
+#	include <stl_relops.h>
 
 #endif /* __SGI_STL_ITERATOR */
 

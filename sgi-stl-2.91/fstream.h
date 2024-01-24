@@ -25,68 +25,69 @@ the executable file might be covered by the GNU General Public License. */
 #ifndef _FSTREAM_H
 #define _FSTREAM_H
 #ifdef __GNUG__
-#pragma interface
+#	pragma interface
 #endif
 #include <iostream.h>
 
 extern "C++" {
 class fstreambase : virtual public ios {
 #ifdef _IO_NEW_STREAMS
-    mutable filebuf __my_fb; // mutable so rdbuf() can be const
+	mutable filebuf __my_fb;// mutable so rdbuf() can be const
 #endif
-    void __fb_init ();
-  public:
-    fstreambase();
-    fstreambase(int fd);
-    fstreambase(int fd, char *p, int l); /* Deprecated */
-    fstreambase(const char *name, int mode, int prot=0664);
-    void close();
+	void __fb_init();
+
+public:
+	fstreambase();
+	fstreambase(int fd);
+	fstreambase(int fd, char *p, int l); /* Deprecated */
+	fstreambase(const char *name, int mode, int prot = 0664);
+	void close();
 #ifdef _IO_NEW_STREAMS
-    filebuf* rdbuf() const { return &__my_fb; }
+	filebuf *rdbuf() const { return &__my_fb; }
 #else
-    filebuf* rdbuf() const { return (filebuf*) ios::rdbuf(); }
+	filebuf *rdbuf() const { return (filebuf *) ios::rdbuf(); }
 #endif
-    void open(const char *name, int mode, int prot=0664);
-    int is_open() const { return rdbuf()->is_open(); }
-    void setbuf(char *ptr, int len) { rdbuf()->setbuf(ptr, len); }
-    void attach(int fd);
+	void open(const char *name, int mode, int prot = 0664);
+	int is_open() const { return rdbuf()->is_open(); }
+	void setbuf(char *ptr, int len) { rdbuf()->setbuf(ptr, len); }
+	void attach(int fd);
 #ifdef _STREAM_COMPAT
-    int filedesc() { return rdbuf()->fd(); }
-    fstreambase& raw() { rdbuf()->setbuf(NULL, 0); return *this; }
+	int filedesc() { return rdbuf()->fd(); }
+	fstreambase &raw() {
+		rdbuf()->setbuf(NULL, 0);
+		return *this;
+	}
 #endif
 };
 
 class ifstream : public fstreambase, public istream {
-  public:
-    ifstream() : fstreambase() { }
-    ifstream(int fd) : fstreambase(fd) { }
-    ifstream(int fd, char *p, int l) : fstreambase(fd, p, l) { } /*Deprecated*/
-    ifstream(const char *name, int mode=ios::in, int prot=0664)
-	: fstreambase(name, mode, prot) { }
-    void open(const char *name, int mode=ios::in, int prot=0664)
-	{ fstreambase::open(name, mode, prot); }
+public:
+	ifstream() : fstreambase() {}
+	ifstream(int fd) : fstreambase(fd) {}
+	ifstream(int fd, char *p, int l) : fstreambase(fd, p, l) {} /*Deprecated*/
+	ifstream(const char *name, int mode = ios::in, int prot = 0664)
+	    : fstreambase(name, mode, prot) {}
+	void open(const char *name, int mode = ios::in, int prot = 0664) { fstreambase::open(name, mode, prot); }
 };
 
 class ofstream : public fstreambase, public ostream {
-  public:
-    ofstream() : fstreambase() { }
-    ofstream(int fd) : fstreambase(fd) { }
-    ofstream(int fd, char *p, int l) : fstreambase(fd, p, l) { } /*Deprecated*/
-    ofstream(const char *name, int mode=ios::out, int prot=0664)
-	: fstreambase(name, mode, prot) { }
-    void open(const char *name, int mode=ios::out, int prot=0664)
-	{ fstreambase::open(name, mode, prot); }
+public:
+	ofstream() : fstreambase() {}
+	ofstream(int fd) : fstreambase(fd) {}
+	ofstream(int fd, char *p, int l) : fstreambase(fd, p, l) {} /*Deprecated*/
+	ofstream(const char *name, int mode = ios::out, int prot = 0664)
+	    : fstreambase(name, mode, prot) {}
+	void open(const char *name, int mode = ios::out, int prot = 0664) { fstreambase::open(name, mode, prot); }
 };
 
 class fstream : public fstreambase, public iostream {
-  public:
-    fstream() : fstreambase() { }
-    fstream(int fd) : fstreambase(fd) { }
-    fstream(const char *name, int mode, int prot=0664)
-	: fstreambase(name, mode, prot) { }
-    fstream(int fd, char *p, int l) : fstreambase(fd, p, l) { } /*Deprecated*/
-    void open(const char *name, int mode, int prot=0664)
-	{ fstreambase::open(name, mode, prot); }
+public:
+	fstream() : fstreambase() {}
+	fstream(int fd) : fstreambase(fd) {}
+	fstream(const char *name, int mode, int prot = 0664)
+	    : fstreambase(name, mode, prot) {}
+	fstream(int fd, char *p, int l) : fstreambase(fd, p, l) {} /*Deprecated*/
+	void open(const char *name, int mode, int prot = 0664) { fstreambase::open(name, mode, prot); }
 };
-} // extern "C++"
+}// extern "C++"
 #endif /*!_FSTREAM_H*/

@@ -25,15 +25,15 @@
  */
 
 #ifndef __SGI_STL_NUMERIC
-#define __SGI_STL_NUMERIC
+#	define __SGI_STL_NUMERIC
 
-#include <stl_config.h>
-#include <stl_relops.h>
-#include <stddef.h>
-#include <iostream.h>
-#include <stl_iterator.h>
-#include <stl_function.h>
-#include <stl_numeric.h>
+#	include <iostream.h>
+#	include <stddef.h>
+#	include <stl_config.h>
+#	include <stl_function.h>
+#	include <stl_iterator.h>
+#	include <stl_numeric.h>
+#	include <stl_relops.h>
 
 #endif /* __SGI_STL_NUMERIC */
 

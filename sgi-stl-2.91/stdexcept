@@ -29,7 +29,7 @@
 #define __STDEXCEPT__
 
 #ifdef __GNUG__
-#pragma interface "stdexcept"
+#	pragma interface "stdexcept"
 #endif
 
 #include <exception>
@@ -41,61 +41,64 @@ extern "C++" {
 namespace std {
 #endif
 
-class logic_error : public exception {
-  string _what;
-public:
-  logic_error(const string& what_arg): _what (what_arg) { }
-  virtual const char* what () const { return _what.c_str (); }
-};
+	class logic_error : public exception {
+		string _what;
 
-class domain_error : public logic_error {
-public:
-  domain_error (const string& what_arg): logic_error (what_arg) { }
-};
+	public:
+		logic_error(const string &what_arg) : _what(what_arg) {}
+		virtual const char *what() const { return _what.c_str(); }
+	};
 
-class invalid_argument : public logic_error {
-public:
-  invalid_argument (const string& what_arg): logic_error (what_arg) { }
-};
+	class domain_error : public logic_error {
+	public:
+		domain_error(const string &what_arg) : logic_error(what_arg) {}
+	};
 
-class length_error : public logic_error {
-public:
-  length_error (const string& what_arg): logic_error (what_arg) { }
-};
+	class invalid_argument : public logic_error {
+	public:
+		invalid_argument(const string &what_arg) : logic_error(what_arg) {}
+	};
 
-class out_of_range : public logic_error {
-public:
-  out_of_range (const string& what_arg): logic_error (what_arg) { }
-};
+	class length_error : public logic_error {
+	public:
+		length_error(const string &what_arg) : logic_error(what_arg) {}
+	};
 
-class runtime_error : public exception {
-  string _what;
-public:
-  runtime_error(const string& what_arg): _what (what_arg) { }
-  virtual const char* what () const { return _what.c_str (); }
-protected:
-  runtime_error(): exception () { }
-};
+	class out_of_range : public logic_error {
+	public:
+		out_of_range(const string &what_arg) : logic_error(what_arg) {}
+	};
 
-class range_error : public runtime_error {
-public:
-  range_error (const string& what_arg): runtime_error (what_arg) { }
-};
+	class runtime_error : public exception {
+		string _what;
 
-class overflow_error : public runtime_error {
-public:
-  overflow_error (const string& what_arg): runtime_error (what_arg) { }
-};
+	public:
+		runtime_error(const string &what_arg) : _what(what_arg) {}
+		virtual const char *what() const { return _what.c_str(); }
 
-class underflow_error : public runtime_error {
-public:
-  underflow_error (const string& what_arg): runtime_error (what_arg) { }
-};
+	protected:
+		runtime_error() : exception() {}
+	};
+
+	class range_error : public runtime_error {
+	public:
+		range_error(const string &what_arg) : runtime_error(what_arg) {}
+	};
+
+	class overflow_error : public runtime_error {
+	public:
+		overflow_error(const string &what_arg) : runtime_error(what_arg) {}
+	};
+
+	class underflow_error : public runtime_error {
+	public:
+		underflow_error(const string &what_arg) : runtime_error(what_arg) {}
+	};
 
 #ifdef __HONOR_STD
-} // namespace std
+}// namespace std
 #endif
- 
-} // extern "C++"
+
+}// extern "C++"
 
 #endif

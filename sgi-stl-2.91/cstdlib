@@ -6,18 +6,18 @@
 #include <stdlib.h>
 
 #ifdef __GNUG__
-#pragma interface "cstdlib"
+#	pragma interface "cstdlib"
 #endif
 
 extern "C++" {
 
 #if _G_HAS_LABS
-inline long   abs(long x)		{ return labs (x); }
+inline long abs(long x) { return labs(x); }
 #else
-inline long   abs(long x)		{ return x >= 0 ? x : -x; }
+inline long abs(long x) { return x >= 0 ? x : -x; }
 #endif
 //inline ldiv_t div(long x, long y)	{ return ldiv (x, y); }
 
-} // extern "C++"
+}// extern "C++"
 
 #endif

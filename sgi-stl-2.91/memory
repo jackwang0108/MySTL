@@ -13,22 +13,22 @@
  */
 
 #ifndef __SGI_STL_MEMORY
-#define __SGI_STL_MEMORY
+#	define __SGI_STL_MEMORY
 
-#include <stl_algobase.h>
-#include <stl_alloc.h>
-#include <stl_construct.h>
-#include <stl_tempbuf.h>
-#include <stl_uninitialized.h>
-#include <stl_raw_storage_iter.h>
+#	include <stl_algobase.h>
+#	include <stl_alloc.h>
+#	include <stl_construct.h>
+#	include <stl_raw_storage_iter.h>
+#	include <stl_tempbuf.h>
+#	include <stl_uninitialized.h>
 
 // Note: auto_ptr is commented out in this release because the details
 //  of the interface are still being discussed by the C++ standardization
 //  committee.  It will be included once the iterface is finalized.
 
-#if 0
-#if defined(_MUTABLE_IS_KEYWORD) && defined(_EXPLICIT_IS_KEYWORD) && \
-    defined(__STL_MEMBER_TEMPLATES)
+#	if 0
+#		if defined(_MUTABLE_IS_KEYWORD) && defined(_EXPLICIT_IS_KEYWORD) && \
+		    defined(__STL_MEMBER_TEMPLATES)
 
 __STL_BEGIN_NAMESPACE
 
@@ -77,8 +77,8 @@ public:
 };
 
 __STL_END_NAMESPACE
-#endif /* mutable && explicit && member templates */
-#endif /* 0 */
+#		endif /* mutable && explicit && member templates */
+#	endif     /* 0 */
 
 
 #endif /* __SGI_STL_MEMORY */

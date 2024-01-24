@@ -29,48 +29,48 @@
  */
 
 #ifndef __SGI_STL_INTERNAL_RAW_STORAGE_ITERATOR_H
-#define __SGI_STL_INTERNAL_RAW_STORAGE_ITERATOR_H
+#	define __SGI_STL_INTERNAL_RAW_STORAGE_ITERATOR_H
 
 __STL_BEGIN_NAMESPACE
 
-template <class ForwardIterator, class T>
+template<class ForwardIterator, class T>
 class raw_storage_iterator {
 protected:
-  ForwardIterator iter;
-public:
-  typedef output_iterator_tag iterator_category;
-  typedef void                value_type;
-  typedef void                difference_type;
-  typedef void                pointer;
-  typedef void                reference;
+	ForwardIterator iter;
 
-  explicit raw_storage_iterator(ForwardIterator x) : iter(x) {}
-  raw_storage_iterator<ForwardIterator, T>& operator*() { return *this; }
-  raw_storage_iterator<ForwardIterator, T>& operator=(const T& element) {
-    construct(&*iter, element);
-    return *this;
-  }        
-  raw_storage_iterator<ForwardIterator, T>& operator++() {
-    ++iter;
-    return *this;
-  }
-  raw_storage_iterator<ForwardIterator, T> operator++(int) {
-    raw_storage_iterator<ForwardIterator, T> tmp = *this;
-    ++iter;
-    return tmp;
-  }
+public:
+	typedef output_iterator_tag iterator_category;
+	typedef void value_type;
+	typedef void difference_type;
+	typedef void pointer;
+	typedef void reference;
+
+	explicit raw_storage_iterator(ForwardIterator x) : iter(x) {}
+	raw_storage_iterator<ForwardIterator, T> &operator*() { return *this; }
+	raw_storage_iterator<ForwardIterator, T> &operator=(const T &element) {
+		construct(&*iter, element);
+		return *this;
+	}
+	raw_storage_iterator<ForwardIterator, T> &operator++() {
+		++iter;
+		return *this;
+	}
+	raw_storage_iterator<ForwardIterator, T> operator++(int) {
+		raw_storage_iterator<ForwardIterator, T> tmp = *this;
+		++iter;
+		return tmp;
+	}
 };
 
-#ifndef __STL_CLASS_PARTIAL_SPECIALIZATION
+#	ifndef __STL_CLASS_PARTIAL_SPECIALIZATION
 
-template <class ForwardIterator, class T>
+template<class ForwardIterator, class T>
 inline output_iterator_tag
-iterator_category(const raw_storage_iterator<ForwardIterator, T>&)
-{
-  return output_iterator_tag();
+iterator_category(const raw_storage_iterator<ForwardIterator, T> &) {
+	return output_iterator_tag();
 }
 
-#endif /* __STL_CLASS_PARTIAL_SPECIALIZATION */
+#	endif /* __STL_CLASS_PARTIAL_SPECIALIZATION */
 
 #endif /* __SGI_STL_INTERNAL_RAW_STORAGE_ITERATOR_H */
 

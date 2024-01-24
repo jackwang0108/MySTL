@@ -25,13 +25,13 @@
  */
 
 #ifndef __SGI_STL_HASH_MAP
-#define __SGI_STL_HASH_MAP
+#	define __SGI_STL_HASH_MAP
 
-#ifndef __SGI_STL_INTERNAL_HASHTABLE_H
-#include <stl_hashtable.h>
-#endif 
+#	ifndef __SGI_STL_INTERNAL_HASHTABLE_H
+#		include <stl_hashtable.h>
+#	endif
 
-#include <stl_hash_map.h>
+#	include <stl_hash_map.h>
 
 #endif /* __SGI_STL_HASH_MAP */
 

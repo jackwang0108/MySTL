@@ -29,17 +29,17 @@
  */
 
 #ifndef __SGI_STL_HASHTABLE_H
-#define __SGI_STL_HASHTABLE_H
+#	define __SGI_STL_HASHTABLE_H
 
-#include <stl_hashtable.h>
-#include <algo.h>
-#include <alloc.h>
-#include <vector.h>
+#	include <algo.h>
+#	include <alloc.h>
+#	include <stl_hashtable.h>
+#	include <vector.h>
 
-#ifdef __STL_USE_NAMESPACES
+#	ifdef __STL_USE_NAMESPACES
 using __STD::hash;
 using __STD::hashtable;
-#endif /* __STL_USE_NAMESPACES */
+#	endif /* __STL_USE_NAMESPACES */
 
 #endif /* __SGI_STL_HASHTABLE_H */
 

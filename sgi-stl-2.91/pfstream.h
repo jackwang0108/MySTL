@@ -27,7 +27,7 @@ the executable file might be covered by the GNU General Public License. */
 #ifndef _PFSTREAM_H
 #define _PFSTREAM_H
 #ifdef __GNUG__
-#pragma interface
+#	pragma interface
 #endif
 #include <fstream.h>
 
@@ -40,8 +40,8 @@ extern "C++" {
 // (These two forms are equivalent.)
 
 class ipfstream : public ifstream {
-  public:
-    ipfstream(const char *name, int mode=ios::in, int prot=0664);
+public:
+	ipfstream(const char *name, int mode = ios::in, int prot = 0664);
 };
 
 // opfstream foo("NAME") is like: ofstream foo("NAME").
@@ -51,9 +51,8 @@ class ipfstream : public ifstream {
 // E.g. opfstream foo("|more");
 
 class opfstream : public ofstream {
-  public:
-    opfstream(const char *name, int mode=ios::out, int prot=0664);
+public:
+	opfstream(const char *name, int mode = ios::out, int prot = 0664);
 };
-} // extern "C++"
+}// extern "C++"
 #endif /*!_PFSTREAM_H*/
-
