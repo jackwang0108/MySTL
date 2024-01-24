@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/sgi-stl-2.91"
+            ],
+            "defines": [],
+            "macFrameworkPath": []
+        }
+    ],
+    "version": 4
+}
