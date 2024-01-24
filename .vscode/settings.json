@@ -3,5 +3,9 @@
         "*.make": "makefile",
         "Makefile2": "makefile",
         "stl_algobase.h": "c"
-    }
+    },
+    "cSpell.words": [
+        "NOTHREADS",
+        "TMPL"
+    ]
 }

@@ -65,7 +65,7 @@
 //  (16) Defines __STL_WIN32THREADS if this is being compiled on a 
 //       WIN32 compiler in multithreaded mode.
 //  (17) Define namespace-related macros (__STD, __STL_BEGIN_NAMESPACE, etc.)
-//       apropriately.
+//       appropriately.
 //  (18) Define exception-related macros (__STL_TRY, __STL_UNWIND, etc.)
 //       appropriately.
 //  (19) Defines __stl_assert either as a test or as a null macro,
